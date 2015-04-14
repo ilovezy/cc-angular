@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ng mouse events</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app>
+
+<div class="container">
+<h2 class="text-center">ng mouse events 鼠标事件</h2>
+
+<div class="row">
+	<div class="col-sm-6">
+<h3>ngMousedown</h3>
+
+<button class="btn btn-success" ng-mousedown="count = count + 1" ng-init="count = 0">
+	Increment (on mouse down)
+</button>
+<div class="well">count: {{ count }}</div></div>
+	<div class="col-sm-6">
+<h3>ngMouseup</h3>
+<button class="btn btn-danger" ng-mouseup="count5 = count5 + 1" ng-init="count5 = 0">Increment(on mouse up)</button>
+<div class="well">count5: {{ count5 }}</div></div>
+</div>
+
+<hr />
+
+
+<div class="row">
+	<div class="col-sm-6">
+<h3>ngMouseenter</h3>
+
+<button class="btn btn-info" ng-mouseenter="count1 = count1 + 1" ng-init="count1 = 0">
+	Increment (on mouse enter)
+</button>
+<div class="well">count1: {{ count1 }}</div></div>
+	<div class="col-sm-6">
+<h3>ngMouseleave</h3>
+<button class="btn btn-warning" ng-mouseleave="count2 = count2 + 1" ng-init="count2 = 0">
+	Increment (on mouse leave)
+</button>
+<div class="well">count2: {{ count2 }}</div>
+</div>
+</div>
+
+<hr />
+<h3>ngMousemove</h3>
+<button class="btn btn-primary" ng-mousemove="count3 = count3 + 1" ng-init="count3 = 0">
+	Increment(on mouse move)
+</button>
+<div class="well">count3: {{ count3 }}</div>
+
+<hr />
+<h3>ngMouseover <small>这个有点类似于mouse enter</small></h3>
+<button class="btn btn-default" ng-mouseover="count4 = count4 + 1" ng-init="count4 = 0">Increment(on mouse move)</button>
+<div class="well">count4: {{ count4 }}</div>
+
+
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+
+</script>
+
+</body>
+</html>

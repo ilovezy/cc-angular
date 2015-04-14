@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ngValue</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app>
+
+<div class="container">
+<h2 class="text-center">ngValue</h2>
+<form method="post" action="" class="form-inline" ng-controller="ccCtrl">
+	<h3>Which is your favourite?</h3>
+	<label ng-repeat="name in names" for="{{ name }}">
+		{{ name }}
+		<input type="radio"
+			ng-model="my.favourite"
+			ng-value="name"
+			id="{{ name }}"
+			name="favourite"
+			class="form-control" />
+	</label>
+
+	<div class="well">
+		Your chose {{ my.favourite }}
+	</div>
+</form>
+
+<hr />
+<h3>script <small>用 script标签做模板，很好用目测</small></h3>
+<a class="btn btn-success" ng-click="currentTpl='/tpl.html'" id="tpl-link" >Load inlined template</a>
+
+<div id="tpl-content" class="alert alert-info" src="currentTpl" ng-include>
+
+</button>
+</div>
+<hr />
+
+<h3>textarea <small>textarea的属性设置,绑定方式和其他 input 类型完全相同，暂时不熟练</small></h3>
+<form ng-controller="qqCtrl" name="ccForm" class="form-inline">
+	<textarea class="form-control" ng-model="textareaValue" name="textName" required="true"
+		ng-minlength="10" ng-maxlength="14" ng-trim="true">
+	</textarea>
+	<span class="text-danger error" ng-show="ccForm.textarea.$error.required">Required !</span>
+	<span class="text-danger error" ng-show="ccForm.textarea.$error.number">Not valid number !</span>
+	<div class="well">
+		<tt>textareaValue = {{ textareaValue }}</tt><br />
+		<tt>ccForm.textarea.$valid = {{ ccForm.input.$valid }}</tt><br />
+		<tt>ccForm.textarea.$error = {{ ccForm.input.$error }}</tt><br />
+		<tt>ccForm.$valid = {{ ccForm.$valid }}</tt><br />
+		<tt>ccForm.$error.required = {{ !!ccForm.$error.required }}</tt><br />
+	</div>
+</form>
+
+
+
+</div>
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function ccCtrl($scope){
+	$scope.names = ['pizza', 'unicorns', 'robots', 'apple']
+	$scope.my = {favourite: 'pizza'}
+}
+
+function qqCtrl($scope){
+	$scope.textareaValue = 12
+}
+
+</script>
+
+
+<script type="text/ng-template" id="/tpl.html">
+Content of the template. CC I AM HERE
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</script>
+
+</body>
+</html>

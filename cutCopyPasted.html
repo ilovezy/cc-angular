@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-csp>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>cut and copy</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app>
+
+<div class="container">
+<h2 class="text-center">对于复制剪切操作的回调</h2>
+<h3>对输入框内的文本进行 剪切操作 ctrl + x 就可以看到回调了</h3>
+<input ng-cut="cut=true" ng-init="cut=false; value='cut me cc'" ng-model="value" class="form-control" />
+cut: {{ cut }}
+
+<hr />
+<h3> ctrl + c 可见回调</h3>
+
+<input ng-copy="copied=true" ng-init="copied=false; value1='copy me cc'" ng-model="value1" class="form-control" />
+copied: {{ copied }}
+<hr />
+
+<h3> ctrl + v 可见回调</h3>
+<input ng-paste="paste=true" ng-init="paste=false" placeholder="paste here" class="form-control" />
+pasted: {{ paste }}
+
+
+</div>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+
+</script>
+
+</body>
+</html>

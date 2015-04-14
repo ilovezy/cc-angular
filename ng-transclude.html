@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ngTransclude</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app>
+	<div class="container">
+	<h2 class="text-center">ngTransclude 有点类似于数据绑定</h2>
+
+	<h3>ngTransclude 半透明？</h3>
+
+	<div ng-controller="Ctrl">
+		<input ng-model="title" class="form-control" /><br />
+		<textarea ng-model="text" class="form-control"></textarea><br />
+		<pane class="well" data-toggle="tooltip" data-placement="bottom" title="{{ title }}">{{ text }}</pane>
+	</div>
+</div>
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+function Ctrl($scope){
+	$scope.title = 'I mis cc very much'
+	$scope.text = 'WHAT IS WRONG WITH HER, i dont know ver much.shit !'
+}
+
+angular.module('transclude', [])
+	.directive('pane', function(){
+		return {
+			restrict: 'E',
+			transclude: true,
+			scope: {
+				title: '@'
+			},
+			template: '<div style="border: 1px solid black">' +
+						  '<div style="background-color: gray">{{title}}</div>' +
+						  '<div ng-transclude></div>' +
+					  '</div>'
+		}
+	})
+
+</script>
+
+</body>
+</html>

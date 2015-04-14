@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ng-swipe-left,ng-swipe-right</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container">
+<h2 class="text-center">左右滑动的事件<small>在PC端居然也支持，鼠标按住左右拖动可见效果,需要引入 angular.touch.js，不过我这里不行，教学网上是可以的，暂时不知道原因</small></h2>
+
+<div class="well" ng-show="!showActions" ng-swipe-left="showActions = true">
+	some list content, like an email in the inbox
+</div>
+
+<div class="well" ng-show="showActions" ng-swipe-right="showActions = false">
+	<input type="button" value="Reply" ng-click="reply()" class="btn btn-defalut"/>
+	<input type="button" value="Delete" ng-click="delete()" class="btn btn-warning" />
+</div>
+
+
+</div>
+
+<script src="angular.min.js"></script>
+<script src="angular-1.2.20/angular-touch.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('ngSwipeLeftExample', ['ngTouch'])
+
+</script>
+
+</body>
+</html>
