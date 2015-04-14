@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>无标题文档</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container" ng-app>
+<h2>鼠标事件</h2>
+<h3>dblclick</h3>
+<input type="button" value="Increment" ng-dblclick="count = count + 1" class="btn btn-default"/>
+count : {{ count }}
+
+<hr />
+
+<h3>click</h3>
+<input type="button" value="Increment" ng-click="count2 = count2 + 1" class="btn btn-warning" />
+count2 : {{ count2 }}
+
+<hr />
+
+<h3>disabled</h3>
+<label>
+click me to toggle: <input type="checkbox" ng-model="checked" /><br />
+</label>
+<input type="button" value="diabled" ng-disabled="checked" class="btn btn-danger"/>
+
+<hr />
+<h3>ng-hide</h3>
+<style type="text/css">
+.animate-hide{
+	-webkit-transition: all linear 2s;
+	transition: all linear 2s;
+	line-height: 20px;
+	opacity: 1;
+	padding: 10px;
+	border: 1px solid black;
+	background: white
+}
+.animate-hide.ng-hide{
+	line-height: 0;
+	opacity:0;
+	padding: 0 10px
+}
+.check-element{
+	padding: 10px;
+	border: 1px solid black;
+	background: white;
+}
+</style>
+<label>Click me: <input type="checkbox" ng-model="checked" /></label>
+<div class="">
+	show:
+	<div class="check-element animate-hide " ng-show="checked">
+		I show up when your checkbox is checked
+	</div>
+</div>
+<div class="">
+	hide:
+	<div class="check-element animate-hide " ng-hide="checked">
+		I hide when your checkbox is checked
+	</div>
+</div>
+
+
+
+</div>
+<br />
+<br />
+<br />
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+console.log(angular.isArray(['2313', 'c']))
+
+</script>
+
+</body>
+</html>

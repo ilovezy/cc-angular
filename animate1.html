@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>animate 1</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+<style type="text/css">
+.my-form{
+	transition: all linear 1s;
+	background: transparent
+}
+.my-form.ng-invalid{
+	background: red;
+	color: white
+}
+</style>
+</head>
+
+<body ng-app="formExample" >
+
+<div class="container">
+	<h2 class="text-center">animate 1</h2>
+
+	<form name="myForm" ng-controller="FormController" class="my-form" method="post" action="">
+		userType: <input type="" name="input" ng-model="userType" required />
+		<span class="text-danger" ng-show="myForm.input.$error.required">Required!</span><br />
+		<tt>userType = {{ userType }}</tt><br />
+		<tt>myForm.input.$valid = {{ myForm.input.$valid }}</tt><br />
+		<tt>myForm.input.$error = {{ myForm.input.$error }}</tt><br />
+		<tt>myForm.$valid = {{ myForm.$valid }}</tt><br />
+		<tt>myForm.$error.required = {{ !!myForm.$error.required }}</tt>
+	</form>
+
+
+</div>
+
+<script src="angular.min.js"></script>
+<script src="angular-1.2.20/angular-animate.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.element(document.getElementsByTagName('head'))
+	.append(angular.element('<base href="' +  window.location.pathname +'">'))
+
+angular.module('formExample', []).controller('FormController', ['$scope', function($scope){
+	$scope.userType = 'guest'
+}])
+
+
+</script>
+
+</body>
+</html>

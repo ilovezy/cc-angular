@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>数据绑定2</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="bindExample2">
+
+<div class="container" ng-controller="ExampleController2">
+<h2 class="text-center">数据绑定2-多重绑定</h2>
+<form action="" class="form-inline">
+<label >
+Salutation: <input type="text" class="form-control" ng-model="salutation" /></label>
+<br /><label >
+Name: <input type="text" class="form-control" ng-model="name" /></label>
+<br />
+<pre ng-bind-template="{{ salutation }}  {{ name }} !"></pre>
+</form>
+
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('bindExample2', [])
+	.controller('ExampleController2', ['$scope', function($scope){
+		// 设置默认值
+		$scope.salutation = 'Hello'
+		$scope.name = 'CC ZY QQ'
+	}])
+
+</script>
+
+</body>
+</html>

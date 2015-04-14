@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>cacheExampleApp</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container" ng-app="cacheExampleApp" >
+
+<h2 class="text-center">cacheExampleApp</h2>
+<p class="alert alert-danger">有 BUG，多按几次 Cache按钮,在console里可以看到</p>
+
+<form method="post" action="" class="form-inline">
+	<div ng-controller="CacheController">
+		<input type="" class="form-control" ng-model="newCacheKey" placeholder="Key" />
+		<input type="" class="form-control" ng-model="newCacheValue" placeholder="Value" />
+		<input type="button" value="Cache" ng-click="put(newCacheKey, newCacheValue)" class="btn btn-default"/>
+
+		<p ng-if="keys.length">Cached Values</p>
+		<div class="" ng-repeat="key in keys">
+			<span class="" ng-bind="key"></span>
+			<span class=""> : </span>
+			<strong ng-bind="cache.get(key)"></strong>
+		</div>
+
+		<p>Cache Info</p>
+		<div class="" ng-repeat="(key, value) in cache.info()">
+			<span class="" ng-bind="key"></span>
+			<span class=""> : </span>
+			<strong ng-bind="value"></strong>
+		</div>
+	</div>
+</form>
+</div>
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+
+
+angular.module('cacheExampleApp', [])
+	.controller('CacheController', ['$scope', '$cacheFactory', function($scope, $cacheFactory){
+		$scope.keys = []
+		$scope.cache = $cacheFactory('cacheId')
+		$scope.put = function(key, value){
+			$scope.cache.put(key, value)
+			$scope.keys.push(key)
+		}
+	}])
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

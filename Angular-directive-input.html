@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>表单控制1</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="">
+
+<div class="container">
+<h2 class="text-center">input</h2>
+<pre>
+input ng-model=""
+	[name=""]
+	[required=""]
+	[ng-required=""]
+	[ng-minlength=""]
+	[ng-maxlength=""]
+	[ng-pattern=""]
+	[ng-change=""]
+</pre>
+
+<div ng-controller="Ctrl">
+	<form name="myForm" class="form-inline">
+		User name: <input type="text" name="userName" class="form-control" ng-model="user.name" required />
+		<span class="text-danger error" ng-show="myForm.userName.$error.required">Required!</span><br />
+		<br />
+		Last name: <input type="text" name="lastName" ng-model="user.last" ng-minlength="3" ng-maxlength="10" class="form-control" />
+		<span class="text-danger error" ng-show="myForm.lastName.$error.minlength">Too Short!</span>
+		<span class="text-danger error" ng-show="myForm.lastName.$error.maxlength">Too Long!</span>
+	</form>
+
+	<hr />
+	<tt>user = {{user}}</tt><br />
+	<tt>myForm.userName.$valid = {{ myForm.userName.$valid }}</tt><br />
+	<tt>myForm.userName.$error = {{ myForm.userName.$error }}</tt><br />
+	<tt>myForm.lastName.$valid = {{ myForm.lastName.$valid }}</tt><br />
+	<tt>myForm.lastName.$error = {{ myForm.lastName.$error }}</tt><br />
+	<tt>myForm.$valid = {{ myForm.$valid }}</tt><br />
+	<tt>myForm.$error.required = {{ !!myForm.$error.required }}</tt><br />
+	<tt>myForm.$error.minlength = {{ !!myForm.$error.minlength }}</tt><br />
+	<tt>myForm.$error.maxlength = {{ !!myForm.$error.maxlength }}</tt>
+</div>
+
+</div>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function Ctrl($scope){
+	$scope.user = {name: 'guest', last: 'visitor'}
+}
+
+</script>
+
+</body>
+</html>

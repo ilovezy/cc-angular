@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>animate2</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style type="text/css">
+
+.my-input{
+	transition: all linear 0.4s;
+	background: transparent
+}
+.my-input.ng-invalid{
+	color: white;
+	background: red
+}
+</style>
+</head>
+
+<body ng-app="inputExample">
+
+<div class="container">
+<h2 class="text-center">animate2</h2>
+
+	<p class="alert alert-info">填写表单信息，可以判断是否通过检测，条件为是否为 int 类型的数据</p>
+
+	<form name="testForm" ng-controller="ExampleController" method="post" action="">
+		<input type="" ng-model="val" ng-pattern="/^\d+$/" name="anim" class="my-input form-control" />
+	</form>
+
+</div>
+
+
+<script src="angular.min.js"></script>
+<script src="angular-1.2.20/angular-animate.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.element(document.getElementsByTagName('head')).append(angular.element('<base href=">' + window.location.pathname +  '" />'))
+
+angular.module('inputExample', []).controller('ExampleController', ['$scope', function($scope){
+	$scope.val = '1'
+}])
+
+</script>
+
+</body>
+</html>

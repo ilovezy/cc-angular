@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>form</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="">
+
+<div class="container">
+	<h2 class="text-center">check to toggle</h2>
+	<form method="post" action="" class="form-inline">
+	<label>
+		Check me to select: <input type="checkbox" ng-model="selected" /></label>
+		<select class="form-control">
+			<option> Hello !</option>
+			<option id="greet" ng-selected="selected">Greetings !</option>
+		</select>
+	</form>
+	<hr />
+	<p class="alert alert-danger">这个show/hide me 无效</p>
+	<label>
+	Check me check multiple: <input type="checkbox" ng-model="open" /></label>
+	<br />
+	<details id="details" ng-open="open">
+		<summary>Show / Hide me</summary>
+	</details>
+</div>
+
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+
+</script>
+
+</body>
+</html>

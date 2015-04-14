@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>directive</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="ngAppDemo">
+
+<div class="container">
+<h2 class="text-center">directive</h2>
+<h3>ngApp</h3>
+<div class="well" ng-controller="ngController">
+I can add: {{ a }} + {{ b }} = {{ a + b }}
+</div>
+
+<hr />
+
+<h3>ng-bind 数据绑定</h3>
+<div class="" ng-controller="Ctrl">
+	<label>Enter name: <input type="text" ng-model="name" class="form-control" /></label><br />
+	<label>Hello <span class="" ng-bind="name"></span> !</label>
+</div>
+
+<hr />
+
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+// ng-app
+angular.module('ngAppDemo', []).controller('ngController', function($scope){
+	$scope.a = 1
+	$scope.b = 2
+})
+
+// ng-bind
+function Ctrl($scope){
+	$scope.name = 'Whirled'
+}
+
+
+
+</script>
+
+</body>
+</html>

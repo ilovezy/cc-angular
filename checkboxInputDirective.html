@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>checkbox-input-directive</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="checkboxExample">
+
+<h2 class="text-center">checkbox-input-directive</h2>
+<div class="container">
+<form name="myForm" ng-controller="ExampleController">
+<div class="checkbox">
+	<label><input type="checkbox" ng-model="value1" />Value1: </label>
+</div>
+<div class="checkbox">
+	<label>
+	<input type="checkbox" ng-model="value2" ng-true-value="YES" ng-false-value="NO" />Value2: </label>
+</div>
+	<br />
+	<tt>value1 = {{ value1 }}</tt>
+	<br />
+	<tt>value2 = {{ value2 }}</tt>
+</form>
+</div>
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('checkboxExample', []).controller('ExampleController', ['$scope', function($scope){
+	$scope.value1 = true
+	$scope.value2 = 'YES'
+}])
+
+</script>
+
+</body>
+</html>

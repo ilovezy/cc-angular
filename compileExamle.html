@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>compileExample</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="compileExample">
+
+<div class="container" ng-controller="GreeterController">
+	<h2 class="text-center">compileExample</h2>
+	<p class="alert alert-warning">在第一个input里和第二个input里输入内容看看</p>
+	<input type="" ng-model="name" class="form-control" /><br />
+	<textarea ng-model="html" class="form-control"></textarea>
+	<br />
+	<div compile="html">
+
+	</div>
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('compileExample', [], function($compileProvider){
+	$compileProvider.directive('compile', function($compile){
+		return function(scope, element, attrs){
+			scope.$watch(
+				function(scope){
+					return scope.$eval(attrs.compile)
+				},
+				function(value){
+					element.html(value)
+					$compile(element.contents())(scope)
+				}
+			)
+		}
+	})
+}).controller('GreeterController', ['$scope', function($scope){
+	$scope.name = 'Angular'
+	$scope.html = 'Hello {{ name }}'
+}])
+
+
+</script>
+
+</body>
+</html>

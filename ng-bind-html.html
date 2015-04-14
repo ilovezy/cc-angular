@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ngBindHtmlExample</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="ngBindHtmlExample">
+
+<div class="container">
+<h2 class="text-center">ngBindHtmlExample</h2>
+
+<div class="well" ng-controller="ngBindHtmlCtrl"><p ng-bind-html="myHTML"></p></div>
+
+</div>
+
+<script src="angular.min.js"></script>
+<script src="angular-1.2.20/angular-sanitize.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('ngBindHtmlExample', ['ngSanitize'])
+	.controller('ngBindHtmlCtrl', ['$scope', function ngBindHtmlCtrl($scope) {
+	  $scope.myHTML =
+		 'I am an <code>HTML</code>string with <a href="#">links!</a> and other <em>stuff</em>';
+	}])
+
+</script>
+
+</body>
+</html>

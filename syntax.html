@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>无标题文档</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+<style type="text/css">
+.strike{
+	text-decoration: line-through
+}
+.bold{
+	font-weight: bold
+}
+.red{
+	color: red
+}
+</style>
+</head>
+
+<body ng-app="">
+
+	<div class="container">
+	<h2 class="text-center">Syntax</h2>
+	<p ng-class="{ strike: deleted, bold: important, red: error }">Map Syntax Example</p>
+	<label><input type="checkbox" ng-model="deleted" />  deleted (apply 'strike' class)</label>
+	<label><input type="checkbox" ng-model="important" /> important (apply 'bold' class)</label>
+	<label><input type="checkbox" ng-model="error" /> important (apply 'red' class)</label>
+	<hr />
+	<p ng-class="style">Using String Syntax</p>
+	<input type="text" class="form-control" ng-model="style" placeholder="Type: bold strike red" />
+	<hr />
+	<p ng-class="[style1, style2, style3]">Using Array Syntax</p>
+	<input ng-model="style1" class="form-control" placeholder="Type: bold, strike or red">
+	<input ng-model="style2" class="form-control" placeholder="Type: bold, strike or red">
+	<input ng-model="style3" class="form-control" placeholder="Type: bold, strike or red">
+	</div>
+	<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict';
+
+</script>
+</body>
+</html>

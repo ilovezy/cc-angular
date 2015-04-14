@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>clickToToggle</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="">
+
+<div class="container">
+	<h2 class="text-center">clickToToggle</h2>
+	<p class='alert alert-info'>点击按钮去影响其他按钮</p>
+	Click me to toggle: <input type="checkbox" ng-model="checked" /><br /><br />
+	<input type="button" value="button" class="btn btn-success" ng-model="button" ng-disabled="checked" />
+	<hr />
+
+	check me to check both: <input type="checkbox" ng-model="master" /><br />
+	<input type="checkbox" id="checkSlave" ng-checked="master" />
+
+	<hr />
+
+	<p class="alert alert-info">点击按钮使表单变得只读</p>
+	click me to make text readonly: <input type="checkbox" ng-model='checked' /><br /><br />
+
+	<input type="text" class="form-control" ng-readonly="checked" value="I'm Angular" />
+</div>
+
+<script src="angular.min.js"></script>
+
+</body>
+</html>

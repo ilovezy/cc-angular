@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>date</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container" ng-controller="Ctrl">
+<h2 class="text-center">Filter 过滤，格式转换，大小写转换等</h2>
+
+<input type="number" ng-model="amount" />
+<br />
+default currency symbol ($): <span class="" id="currency-default">{{ amount | currency }}</span>
+<br />
+custom currency identifier (USD$): <span>{{ amount | currency: "USD$" }}</span>
+<hr />
+<h3>date</h3>
+<span>{{ 1288323623006 | date: 'short' }}</span>
+<br /><span>{{ 1288323623006 | date: 'yyyy' }}</span>
+<br /><span>{{ 1288323623006 | date: 'yy' }}</span>
+<br /><span>{{ 1288323623006 | date: 'MMMM' }}</span>
+<br /><span>{{ 1288323623006 | date: 'EEEE' }}</span>
+<br /><span>{{ 1288323623006 | date: 'H' }}</span>
+<br /><span>{{ 1288323623006 | date: 'ss' }}</span>
+<br /><span>{{ 1288323623006 | date: 'a' }}</span>
+<br /><span>{{ 1288323623006 | date: 'medium' }}</span>
+<hr />
+
+<h3>limit</h3>
+<div class="well">
+	Limit {{ numbers }} to: <input type="integer" ng-model="numLimit">
+	<p>Output numbers: {{ numbers | limitTo: numLimit }}</p>
+	Limit {{ letters }} to: <input type="integer" ng-model="letterLimit">
+	<p>Output letters: {{ letters | limitTo: letterLimit }}</p>
+</div>
+<hr />
+<h3>json 转换个json格式的字符串</h3>
+<pre>{{ {"name": 'value', age: 23} | json }}</pre>
+
+<hr />
+<h3>lowercase & uppercase</h3>
+<p class="alert alert-info">{{ 'fdaFDSAFSDf' | lowercase }}<br />
+{{ 'fdaFDSAFSDf' | uppercase }}
+</p>
+<hr />
+
+<h3>number</h3>
+<div>
+	Enter number: <input type="" ng-model="val" /><br />
+	Default formatting: <span id="number-default">{{ val | number }}</span><br />
+	No fractions: <span>{{ val | number: 0 }}</span><br />
+	Negative number: <span class="">{{ -val | number: 4 }}</span>
+</div>
+
+<h3>OrderBy</h3>
+<div>
+	<pre>Sorting predicate = {{ predicate }}; reverse = {{ reverse }}</pre>
+	<hr />
+	[ <a ng-click="predicate=''">unsorted</a> ]
+	<table class="table table-hover table-striped table-responsive friend">
+		<tr>
+			<th>
+				<a ng-click="predicate = 'name'; reverse=false">Name</a>
+				(<a ng-click="predicate = '-name'; reverse=false">^</a>)
+			</th>
+			<th><a ng-click="predicate = 'phone'; reverse=!reverse">Phone Number</a></th>
+			<th><a ng-click="predicate = 'age'; reverse=!reverse">Age</a></th>
+		</tr>
+		<tr ng-repeat="friend in friends | orderBy:predicate:reverse">
+			<td>{{ friend.name }}</td>
+			<td>{{ friend.phone }}</td>
+			<td>{{ friend.age }}</td>
+		</tr>
+	</table>
+</div>
+
+
+</div>
+<br />
+<br />
+<br />
+<br />
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+function Ctrl($scope){
+	$scope.amount = 1234.56
+
+	// limit
+	$scope.numbers = [1,2,3,4,5,6,7,8,9]
+	$scope.letters = 'abcdefghi'
+	$scope.numLimit = 3
+	$scope.letterLimit = 3
+
+	// number>val
+	$scope.val = 1234.321344
+
+	// orderBy
+	$scope.friends = [
+		{name: 'John', phone: '555-1212', age: 10},
+		{name: 'Mary', phone: '555-9876', age: 12},
+		{name: 'Mike', phone: '555-4321', age: 21},
+		{name: 'Adam', phone: '555-5678', age: 35},
+		{name: 'Julie', phone: '555-8765', age: 29}
+	]
+
+	$scope.predicate = '-age'
+}
+</script>
+
+</body>
+</html>

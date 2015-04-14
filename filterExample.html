@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>filterExample</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="filterExample">
+<div class="container">
+<h2 class="text-center">filterExample</h2>
+<div class="well" ng-controller="MainCtrl">
+	<h3>{{ originalText }}</h3>
+	<h3>{{ lowercaseText }}</h3>
+	<h3>{{ uppercaseText }}</h3>
+</div>
+</div>
+
+
+
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('filterExample', []).controller('MainCtrl', function($scope, $filter){
+	$scope.originalText = 'HEllo cC'
+	$scope.lowercaseText = $filter('lowercase')($scope.originalText)
+	$scope.uppercaseText = $filter('uppercase')($scope.originalText)
+})
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>无标题文档</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container">
+<h2 class="text-center"> jquery .on()实现多个事件绑定</h2>
+<br />
+
+<button id="ccBtn" class="btn btn-default">click OR hover</button>
+
+</div>
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+$('#ccBtn').on('click mouseover', function(){
+	console.log('hi')
+})
+
+
+</script>
+
+</body>
+</html>

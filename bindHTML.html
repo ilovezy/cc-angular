@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>bind HTML</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="bindHtmlExample">
+
+<div class="container" ng-controller="ExampleController">
+<h2 class="text-center">bind HTML</h2>
+<p class="alert alert-info">绑定html语言</p>
+
+<p ng-bind-html="myHTML"></p>
+
+
+</div>
+
+
+<script src="angular.min.js"></script>
+<script src="angular-1.2.20/angular-sanitize.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('bindHtmlExample', ['ngSanitize'])
+	.controller('ExampleController', ['$scope', function($scope){
+		$scope.myHTML = 'I AM AN <code> HTML</code> string with ' + '<a href="#">links!</a> and other <em>stuff</em>'
+	}])
+
+</script>
+
+</body>
+</html>
